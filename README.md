@@ -113,6 +113,37 @@ Inside the SS folder you will find the `jekyll_content.json` file and opening it
 
 For example, if the location of the SS on your site is in `/assets/js/ss/`. Then you should set the permalink to `/assets/js/ss/content.json`. This will cause Jekyll to automatically create the index in the same directory as the SS.
 
+#### Including pages and collections
+
+By default, only posts are included in the search index. Pages and collections are not included.
+
+Add the following to `_config.yml` to include pages and collections. `collections` is an array containing a list of collections you want to include.
+
+```yml
+ss:
+  include:
+    pages: true
+    collections: [javascript, php]
+```
+
+#### Excluding from search index
+
+Exclude single documents from the search index with a front-matter variable:
+
+```yml
+ss_exclude: true
+```
+
+Exclude multiple files, tags or categories using a setting in `_config.yml`. `files` is an array containing a list of file paths to be excluded. `tags` and `categories` are arrays containing lists of tags and categories you want to exclude.
+
+```yml
+ss:
+  exclude:
+    files: [search.html, _javascript/localStorage.md, _php/DOMDocument.md]
+    tags: [tag1, tag2]
+    categories: [category1, category2]
+```
+
 ### PHP
 
 Calm. As already said, you do not need to have PHP on your server. But if you do not use Jekyll you should create the `content.json` file somehow and then we already made available two PHP files inside the SS folder.
